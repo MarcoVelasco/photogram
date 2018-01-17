@@ -41,7 +41,7 @@ class SubirPublicacion extends Component {
         const up = this.props.user.nombre;
         const fechita =this.getDatePro();
 
-        const storageRef = storeDB.ref('fotos/'+this.state.foto.name);
+        const storageRef = storeDB.ref('fotos/'+ this.state.foto.name);
         const task = storageRef.put(this.state.foto);
         task.on('state_changed', snapshot=>{
             let progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
@@ -52,7 +52,6 @@ class SubirPublicacion extends Component {
         },function(){
             var imageURL = task.snapshot.downloadURL;
             console.log("Photo uploaded");
-
             var pub = {
                 id: Date.now(),
                 image: imageURL,
@@ -60,9 +59,7 @@ class SubirPublicacion extends Component {
                 uploader: up,
                 fecha: fechita
             }
-
             db.ref("publicaciones/"+pub.id).set(pub);
-
         })
     }
     render() { 

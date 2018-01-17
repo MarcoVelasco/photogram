@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Form, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
 import {db} from '../firebase';
 import Perfil from './perfil';
+import Publicaciones from './Publicaciones';
 class LogIn extends Component{
     constructor(){
         super();
@@ -46,6 +47,7 @@ class LogIn extends Component{
             return(
                 <div>
                     <Perfil usuario={this.state.user}/>
+                    <Publicaciones/>
                     <br></br>
                     <Button bsStyle="default" onClick={()=>{this.setState({user:null})}}>Cerrar Sesion </Button>
                 </div>
