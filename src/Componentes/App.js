@@ -21,7 +21,13 @@ class App extends Component {
 renderApp(){
   if(this.state.seleccion === "INICIO"){
     return(
-      <p>Selecciona una de las opciones anteriores </p>
+      <div>
+      <h1> Ao(?) </h1>
+      <p>
+        <Button bsStyle="primary" onClick={this.handleLog}>Iniciar Sesion </Button> {'       '}
+        <Button bsStyle="default" onClick={this.handleSign}>Registrarse </Button>
+      </p>
+      </div>
     )
   }
   else if(this.state.seleccion === "LOGIN"){
@@ -54,11 +60,7 @@ handleSign(e){
           <div>
             <center>
               <Jumbotron>
-                <h1> Ao(?) </h1>
-                <p>
-                  <Button bsStyle="primary" onClick={this.handleLog}>Iniciar Sesion </Button> {'       '}
-                  <Button bsStyle="default" onClick={this.handleSign}>Registrarse </Button>
-                </p>
+               
                 {this.renderApp()}
               </Jumbotron>
             </center>
